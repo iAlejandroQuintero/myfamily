@@ -2,38 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alimentación Inteligente - Medellín</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 20px; }
-        .card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; }
-        .prep-box { background: #fff3cd; padding: 15px; border-left: 5px solid #ffc107; }
-    </style>
+    <title>Control de Alimentación y Mercado</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Alimentación Inteligente (Medellín)</h1>
-    <div id="menu-container"></div>
-    <div class="card prep-box">
-        <h3>🔔 Recordatorio para Mañana:</h3>
-        <div id="prep-notification"></div>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Volver al Menú Principal</a>
+        <h1>🥗 Control de Alimentación y Compras</h1>
+        <div class="card">
+            <h2>Planificación del Mercado Semanal</h2>
+            <p>Gestiona los alimentos, productos de despensa y presupuesto de alimentación de la familia.</p>
+            <ul>
+                <li><strong>Frutas y Verduras:</strong> Abastecimiento semanal</li>
+                <li><strong>Proteínas:</strong> Carnes, pollo y huevos</li>
+                <li><strong>Despensa:</strong> Granos, aceites y abarrotes</li>
+            </ul>
+        </div>
     </div>
-    <script src="menu_data.js"></script>
-    <script>
-        const container = document.getElementById('menu-container');
-        weeklyMenu.forEach(d => {
-            container.innerHTML += `
-                <div class='card'>
-                    <h2>${d.day}</h2>
-                    <p><strong>Desayuno:</strong> ${d.meals.desayuno.item} ($${d.meals.desayuno.cost})</p>
-                    <p><strong>Almuerzo:</strong> ${d.meals.almuerzo.item} ($${d.meals.almuerzo.cost})</p>
-                    <p><strong>Comida:</strong> ${d.meals.comida.item} ($${d.meals.comida.cost})</p>
-                </div>
-            `;
-        });
-        const prep = getPrepNotification(0);
-        document.getElementById('prep-notification').innerHTML = 
-            `Preparar para mañana: ${prep.desayuno.prep}, ${prep.almuerzo.prep}, ${prep.comida.prep}`;
-    </script>
 </body>
 </html>
