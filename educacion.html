@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educación Familiar - Panel Académico</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; color: #333; }
+        h1, h2 { color: #2c3e50; text-align: center; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border-top: 5px solid #3498db; }
+        .card h3 { margin-top: 0; color: #2980b9; }
+        .badge { background: #eef2f7; padding: 4px 8px; border-radius: 4px; font-size: 0.85em; font-weight: bold; color: #555; display: inline-block; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f8f9fa; color: #444; }
+        .links-section { margin-top: 40px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+        .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; margin-top: 15px; }
+        .link-item { background: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #e1e4e8; text-decoration: none; color: #2980b9; display: block; font-weight: bold; transition: background 0.2s; }
+        .link-item:hover { background: #e2e8f0; color: #1b4f72; }
+        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; background: #2c3e50; color: white; padding: 8px 15px; border-radius: 6px; font-size: 0.9em; }
+        .back-btn:hover { background: #1a252f; }
+    </style>
+</head>
+<body>
+    <a href="alimentacion.html" class="back-btn">← Ir a Alimentación</a>
+    <h1>📚 Panel de Educación y Progreso Académico</h1>
+    <p style="text-align: center; color: #666;">Seguimiento académico, horarios, materias, notas y recursos de investigación para toda la familia.</p>
+
+    <div class="grid-container" id="estudiantes-container"></div>
+
+    <div class="links-section">
+        <h2>🔍 Páginas de Investigación y Práctica Recomendadas</h2>
+        <p style="color: #666; text-align: center;">10 plataformas seleccionadas para reforzar conocimientos, investigar y practicar:</p>
+        <div class="links-grid" id="links-container"></div>
+    </div>
+
+    <script src="educacion_data.js"></script>
+    <script>
+        // Renderizar estudiantes
+        const container = document.getElementById('estudiantes-container');
+        educacionData.forEach(est => {
+            let materiasHtml = '';
+            est.materias.forEach(mat => {
+                materiasHtml += `<tr><td>${mat.nombre}</td><td style="text-align: center; font-weight: bold; color: #27ae60;">${mat.nota}</td></tr>`;
+            });
+
+            container.innerHTML += `
+                <div class="card">
+                    <h3>${est.nombre}</h3>
+                    <div class="badge">${est.estudio}</div>
+                    <p><strong>Institución:</strong> ${est.institucion}</p>
+                    <p><strong>Horario:</strong> ${est.horario}</p>
+                    <h4>Materias y Notas:</h4>
+                    <table>
+                        <thead>
+                            <tr><th>Materia</th><th style="text-align: center;">Nota</th></tr>
+                        </thead>
+                        <tbody>
+                            ${materiasHtml}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        });
+
+        // Renderizar enlaces de investigación
+        const linksContainer = document.getElementById('links-container');
+        paginasInvestigacion.forEach(link => {
+            linksContainer.innerHTML += `
+                <a href="${link.url}" target="_blank" class="link-item">🔗 ${link.nombre}</a>
+            `;
+        });
+    </script>
+</body>
+</html>

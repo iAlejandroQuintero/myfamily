@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Tareas Familiares</title>
+    <style>
+        body { font-family: sans-serif; background: #eef2f3; padding: 20px; }
+        .container { max-width: 900px; margin: auto; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .filter-btn { padding: 8px 15px; margin: 5px; cursor: pointer; border: none; border-radius: 5px; }
+        .PENDIENTE { color: #d9534f; font-weight: bold; }
+        .COMPLETADO { color: #5cb85c; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Check-list de Tareas</h1>
+        <div id="controls">
+            <button class="filter-btn" onclick="render('Todos')">Todos</button>
+            <button class="filter-btn" onclick="render('Estudio')">Estudio</button>
+            <button class="filter-btn" onclick="render('Casa')">Casa</button>
+        </div>
+        <div id="tabla-container" class="card"></div>
+    </div>
+    <script>
+        let tareas = [];
+        fetch('tareas_familia.json').then(r => r.json()).then(data => { tareas = data; render('Todos'); });
+
+        function render(cat) {
+            let html = '<table><tr><th>Persona</th><th>Tarea</th><th>Categoría</th><th>Estado</th><th>Acción</th></tr>';
+            tareas.forEach(t => {
+                if (cat === 'Todos' || t.categoria === cat) {
+                    html += `<tr><td>${t.persona}</td><td>${t.tarea}</td><td>${t.categoria}</td>
+                             <td class="${t.estado.toUpperCase().replace(' ', '_')}">${t.estado}</td>
+                             <td><button onclick="finalizar(${t.id})">Finalizar</button></td></tr>`;
+                }
+            });
+            document.getElementById('tabla-container').innerHTML = html + '</table>';
+        }
+
+        function finalizar(id) {
+            alert('Tarea ' + id + ' marcada como completada.');
+        }
+    </script>
+</body>
+</html>

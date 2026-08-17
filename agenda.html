@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Familiar Inteligente</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: linear-gradient(135deg, #00c6ff, #0072ff); 
+            color: white; 
+            margin: 0; 
+            padding: 20px; 
+            min-height: 100vh;
+        }
+        .container { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; backdrop-filter: blur(10px); }
+        h1 { text-align: center; }
+        .calendar-placeholder { 
+            background: white; color: #333; padding: 20px; border-radius: 10px; margin-top: 20px; 
+            text-align: center; min-height: 200px; display: flex; align-items: center; justify-content: center;
+        }
+        .controls { display: flex; justify-content: space-around; margin-top: 20px; }
+        .chart-box { background: white; color: #333; padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .back-btn { display: inline-block; background: rgba(255,255,255,0.2); color: white; padding: 8px 15px; text-decoration: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-btn">← Volver</a>
+    <div class="container">
+        <h1>📅 Agenda Familiar</h1>
+        <div class="calendar-placeholder">
+            <!-- Aquí se incrustaría el Iframe de Google Calendar -->
+            <p>Calendario Centralizado (Google Calendar Integrado aquí)</p>
+        </div>
+        <div class="chart-box">
+            <h3>Gráfica de Tiempo Disponible (Semanal)</h3>
+            <canvas id="timeChart"></canvas>
+        </div>
+    </div>
+    <script src="agenda_data.js"></script>
+</body>
+</html>

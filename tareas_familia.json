@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "persona": "Alejandro",
+        "categoria": "Estudio",
+        "tarea": "Proyecto Ingenier\u00eda",
+        "estado": "Pendiente",
+        "prioridad": "Alta",
+        "fecha": "2026-08-20"
+    },
+    {
+        "id": 2,
+        "persona": "Jacobo",
+        "categoria": "Casa",
+        "tarea": "Limpiar habitaci\u00f3n",
+        "estado": "Completado",
+        "prioridad": "Media",
+        "fecha": "2026-08-16"
+    },
+    {
+        "id": 3,
+        "persona": "Ana Mar\u00eda",
+        "categoria": "Compras",
+        "tarea": "Mercado semanal",
+        "estado": "Pendiente",
+        "prioridad": "Alta",
+        "fecha": "2026-08-21"
+    },
+    {
+        "id": 4,
+        "persona": "Santiago",
+        "categoria": "Entrenamiento",
+        "tarea": "Rutina cardio",
+        "estado": "Pendiente",
+        "prioridad": "Baja",
+        "fecha": "2026-08-18"
+    },
+    {
+        "id": 5,
+        "persona": "Kevin",
+        "categoria": "Estudio",
+        "tarea": "Repaso Parcial",
+        "estado": "En progreso",
+        "prioridad": "Alta",
+        "fecha": "2026-08-19"
+    },
+    {
+        "id": 6,
+        "persona": "Emily",
+        "categoria": "Casa",
+        "tarea": "Organizar juguetes",
+        "estado": "Pendiente",
+        "prioridad": "Media",
+        "fecha": "2026-08-18"
+    }
+]
